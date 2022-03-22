@@ -1,0 +1,38 @@
+.busca {
+		display: flex;
+		align-items: center;
+		margin: 0;
+		padding: 8px;
+
+		legend,
+		label,
+		select {
+			display: none;
+		}
+
+		.fulltext-search-box {
+			flex: 1;
+			height: 23px;
+			padding: 0;
+			border: 0;
+			outline: 0;
+			line-height: 12px;
+			font-size: 10px;
+			color: $white-500;
+			background: transparent;
+
+		}
+
+		.btn-buscar {
+			width: 23px;
+			height: 23px;
+			padding: 0;
+			border: 0;
+			outline: 0;
+			font-size: 0;
+			background-color: transparent;
+
+			@extend .sprite;
+			@extend .sprite-search-icon;
+		}
+	}

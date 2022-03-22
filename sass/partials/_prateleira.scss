@@ -1,0 +1,194 @@
+.shelf {
+	h2 {
+		margin: 0 0 16px;
+		text-align: center;
+		line-height: 19px;
+		font-size: 16px;
+	}
+	
+	ul {
+		margin: 0;
+
+		@include mq(lg, max) {
+			padding: 0 32px;
+		}
+	}
+
+	.slick-track {
+		display: flex;
+	}
+
+	.slick-slide {
+		height: auto;
+
+		& > div,
+		li {
+			height: 100%;
+		}
+	}
+
+	.slick-arrow {
+		@extend .sprite;
+
+		@include mq(lg, max) {
+			transform: translateY(-50%) scale(0.7);
+		}
+	}
+
+	.slick-prev {
+		right: 100%;
+
+		@include mq(lg, max) {
+			left: 0;
+			right: auto;
+			transform-origin: left
+		}
+
+		@extend .sprite-left-gray-arrow-icon;
+	}
+
+	.slick-next {
+		left: 100%;
+
+		@include mq(lg, max) {
+			right: 0;
+			left: auto;
+			transform-origin: right
+		}
+
+		@extend .sprite-right-gray-arrow-icon;
+	}
+
+	.produto-na-prateleira {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		height: 100%;
+		margin: 0 15px;
+
+		.product-image {
+			position: relative;
+			overflow: hidden;
+			margin-bottom: 16px;
+			padding-top: 100%;
+
+			&:hover {
+				.foto-secundaria {
+					opacity: 1;
+					pointer-events: all;
+				}
+			}
+
+			.foto-principal,
+			.foto-secundaria {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: map-get($z-index, level-1);
+				width: 100%;
+				height: 100%;
+			}
+
+			.foto-secundaria {
+				opacity: 0;
+				pointer-events: none;
+				transition: all .2s ease-in-out;
+
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.disponivel,
+		.indisponivel {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		}
+
+		.nome {
+			margin-bottom: 17px;
+			text-align: center;
+			text-transform: uppercase;
+			line-height: 12px;
+			font-size: 10px;
+			font-weight: 500;	
+		}
+
+		.price {
+			margin-bottom: 17px;
+			text-align: center;
+			text-transform: uppercase;
+
+			.antigo {
+				margin-bottom: 4px;
+				text-decoration: line-through;
+				line-height: 12px;
+				font-size: 10px;
+				color: $gray-300;
+			}
+
+			.principal{
+				margin-bottom: 4px;
+				line-height: 16px;
+				font-size: 13px;
+				font-weight: 900;
+			}
+
+			.parcelado {
+				line-height: 12px;
+				font-size: 10px;
+				color: $gray-400;
+			}
+		}
+
+		.btn-compra {
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 50px;
+				line-height: 12px;
+				font-size: 10px;
+				font-weight: bold;
+				color: $white-500;
+				background: $black-500;
+
+				@include mq(lg, max) {
+					&:active {
+						background: lighten($black-500, 10);
+					}
+				}
+
+				@include mq(lg, min) {
+					&:hover {
+						background: lighten($black-500, 10);
+					}
+	
+					&:active {
+						background: $black-500;
+					}
+				}
+			}
+		}
+		
+		.indisponivel {
+			.erro {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 50px;
+				line-height: 12px;
+				font-size: 10px;
+				font-weight: bold;
+				color: $red-300;
+			}
+		}
+	}
+}
+//left-gray-arrow-icon
